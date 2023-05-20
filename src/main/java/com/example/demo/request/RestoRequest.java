@@ -25,7 +25,6 @@ public class RestoRequest {
 	private String week;
 	private Zone zone;
 	private Serie serie;
-	private List<Photo> photo;
 	public String getNom() {
 		return nom;
 	}
@@ -92,11 +91,6 @@ public class RestoRequest {
 	public void setSerie(Serie serie) {
 		this.serie = serie;
 	}
-	public List<Photo> getPhoto() {
-		return photo;
-	}
-	public void setPhoto(List<Photo> photo) {
-		this.photo = photo;
-	}
+
 	
 }

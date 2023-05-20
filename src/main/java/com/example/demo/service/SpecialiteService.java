@@ -9,5 +9,6 @@ public interface SpecialiteService {
 	SpecialiteDto GetByNom(String nom);
 	SpecialiteDto Update(String id,SpecialiteDto dto);
 	void Delete(String id);
-	List<SpecialiteDto> GetallSpecialite(int page,int limit);
+	List<SpecialiteDto> GetallSpecialite();
+	SpecialiteDto GetBiId(String id);
 }

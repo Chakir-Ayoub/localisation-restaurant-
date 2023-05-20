@@ -1,8 +1,13 @@
 package com.example.demo.entity;
 
+import java.io.IOException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,6 +29,8 @@ public class Zone  {
 	private Integer id;
 	@Column(nullable = false)
 	private String zoneid;
+
+
 	@Column(nullable = false,length = 50)
 	private String nom;
 	
@@ -77,6 +84,21 @@ public class Zone  {
 		this.resto = resto;
 	}
 
+	public Zone(String json) throws JsonParseException, JsonMappingException, IOException {
+	    ObjectMapper mapper = new ObjectMapper();
+	    Zone zone = mapper.readValue(json, Zone.class);
+	    this.id = zone.getId();
+	    this.zoneid = zone.getZoneid();
+	    this.nom = zone.getNom();
+	    this.ville = zone.getVille();
+	    this.resto = zone.getResto();
+	}
+
+	public Zone() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 
 
 	

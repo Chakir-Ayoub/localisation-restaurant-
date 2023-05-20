@@ -30,7 +30,6 @@ public class RestoServiceImpl implements RestoService {
 		Resto resto=new Resto();
 		BeanUtils.copyProperties(dto, resto);
 		resto.setRestoid(utils.generateStringId(32));
-		
 		Resto newResto=repository.save(resto);
 		RestoDto dto2=new RestoDto();
 		
@@ -61,7 +60,6 @@ public class RestoServiceImpl implements RestoService {
 		resto.setLatitude(dto.getLatitude());
 		resto.setLongitude(dto.getLongitude());
 		resto.setNom(dto.getNom());
-		resto.setPhoto(dto.getPhoto());
 		resto.setRank(dto.getRank());
 		resto.setSerie(dto.getSerie());
 		resto.setSpecialite(dto.getSpecialite());
@@ -97,6 +95,17 @@ public class RestoServiceImpl implements RestoService {
 			dtos.add(dto);
 		}
 		return dtos;
+	}
+
+	@Override
+	public RestoDto GetById(String id) {
+		// TODO Auto-generated method stub
+		Resto resto=repository.findByrestoid(id);
+		
+		RestoDto dto=new RestoDto();
+		
+		BeanUtils.copyProperties(resto, dto);
+		return dto;
 	}
 
 }

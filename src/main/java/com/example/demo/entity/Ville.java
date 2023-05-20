@@ -55,5 +55,12 @@ public class Ville  {
 	public void setZone(List<Zone> zone) {
 		this.zone = zone;
 	}
+
+	public Ville() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	
 }

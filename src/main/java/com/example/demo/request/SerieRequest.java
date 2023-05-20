@@ -8,6 +8,7 @@ public class SerieRequest {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	
 	
 	

@@ -53,6 +53,27 @@ public class Resto  {
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL ,mappedBy = "resto")
 	private Set<Specialite> specialite = new HashSet<>();
 
+	public Resto(String restoid, String nom, Integer rank, String adresse, Integer latitude, Integer longitude, Date heure_open, Date heure_close, String week, Zone zone, Serie serie, List<Photo> photo, Set<Specialite> specialite) {
+	    this.restoid = restoid;
+	    this.nom = nom;
+	    this.rank = rank;
+	    this.adresse = adresse;
+	    this.latitude = latitude;
+	    this.longitude = longitude;
+	    this.heure_open = heure_open;
+	    this.heure_close = heure_close;
+	    this.week = week;
+	    this.zone = zone;
+	    this.serie = serie;
+	    this.photo = photo;
+	    this.specialite = specialite;
+	}
+
+	public Resto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Integer getId() {
 		return id;
 	}

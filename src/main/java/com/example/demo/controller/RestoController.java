@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entity.Resto;
 import com.example.demo.reponse.RestoResponse;
 import com.example.demo.request.RestoRequest;
 import com.example.demo.service.RestoService;
@@ -21,6 +25,7 @@ import com.example.demo.shared.dto.RestoDto;
 
 @RestController
 @RequestMapping("/resto")
+@CrossOrigin("http://localhost:3000/")
 public class RestoController {
 	
 	@Autowired 
@@ -77,5 +82,18 @@ public class RestoController {
 	@DeleteMapping(path = "/{id}")
 	public void Delete(@PathVariable String id) {
 		restoService.Delete(id);
+	}
+	
+	
+	@GetMapping(path = "/Byid/{id}")
+	public ResponseEntity<RestoResponse> GetById(@PathVariable String id){
+		RestoDto restoDto=restoService.GetById(id);
+		RestoResponse resto=new RestoResponse();
+		
+		BeanUtils.copyProperties(restoDto, resto);
+		
+		return new ResponseEntity<>(resto,HttpStatus.OK);
+		
+		
 	}
 }

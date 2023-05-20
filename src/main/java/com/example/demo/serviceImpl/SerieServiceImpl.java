@@ -50,6 +50,7 @@ public class SerieServiceImpl implements SerieService {
 		// TODO Auto-generated method stub
 		Serie serie=repository.findByserieid(id);
 		if(serie==null) throw new RuntimeException("Serie Not Found");
+		
 		serie.setNom(dto.getNom());
 		
 		Serie updateserie=repository.save(serie);
@@ -81,6 +82,16 @@ public class SerieServiceImpl implements SerieService {
 		}
 		 
 		 return serieDto;
+	}
+
+	@Override
+	public SerieDto GetById(String id) {
+		// TODO Auto-generated method stub
+		Serie serie=repository.findByserieid(id);
+		
+		SerieDto dto=new SerieDto();
+		BeanUtils.copyProperties(serie, dto);
+		return dto;
 	}
 
 }

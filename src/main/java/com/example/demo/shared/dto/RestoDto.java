@@ -29,7 +29,6 @@ public class RestoDto implements Serializable {
 	private String week;
 	private Zone zone;
 	private Serie serie;
-	private List<Photo> photo;
 	private Set<Specialite> specialite = new HashSet<>();
 	public String getNom() {
 		return nom;
@@ -97,12 +96,7 @@ public class RestoDto implements Serializable {
 	public void setSerie(Serie serie) {
 		this.serie = serie;
 	}
-	public List<Photo> getPhoto() {
-		return photo;
-	}
-	public void setPhoto(List<Photo> photo) {
-		this.photo = photo;
-	}
+
 	public Set<Specialite> getSpecialite() {
 		return specialite;
 	}

@@ -2,6 +2,7 @@ package com.example.demo.reponse;
 
 
 public class SerieResponse {
+	private Integer id;
 	private String serieid;
 	private String nom;
 	
@@ -16,6 +17,12 @@ public class SerieResponse {
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	

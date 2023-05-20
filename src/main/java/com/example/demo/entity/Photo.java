@@ -54,6 +54,11 @@ public class Photo  {
 	public void setResto(Resto resto) {
 		this.resto = resto;
 	}
+
+	public Photo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 
 

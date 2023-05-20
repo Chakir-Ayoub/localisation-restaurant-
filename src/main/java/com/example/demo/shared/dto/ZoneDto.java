@@ -6,6 +6,7 @@ import com.example.demo.entity.Ville;
 
 public class ZoneDto implements Serializable {
 	private static final long serialVersionUID = -4280991494692306627L;
+	private Integer id;
 	private String zoneid;
 	private String nom;
 	private Ville ville;
@@ -13,6 +14,12 @@ public class ZoneDto implements Serializable {
 	
 	public String getZoneid() {
 		return zoneid;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public void setZoneid(String zoneid) {
 		this.zoneid = zoneid;

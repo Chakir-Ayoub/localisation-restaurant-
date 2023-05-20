@@ -65,7 +65,7 @@ public class SpecialiteServiceImpl implements SpecialiteService {
 	}
 
 	@Override
-	public List<SpecialiteDto> GetallSpecialite(int page, int limit) {
+	public List<SpecialiteDto> GetallSpecialite() {
 		// TODO Auto-generated method stub
 		List<SpecialiteDto> specialiteDtos =new ArrayList<>();
 		List<Specialite> specialites=repository.findAll();
@@ -77,6 +77,16 @@ public class SpecialiteServiceImpl implements SpecialiteService {
 			specialiteDtos.add(dto);
 		}
 		return specialiteDtos;
+	}
+
+	@Override
+	public SpecialiteDto GetBiId(String id) {
+		// TODO Auto-generated method stub
+		Specialite specialite=repository.findByspecialiteid(id);
+		
+		SpecialiteDto dto=new SpecialiteDto();
+		BeanUtils.copyProperties(specialite, dto);
+		return dto;
 	}
 
 }

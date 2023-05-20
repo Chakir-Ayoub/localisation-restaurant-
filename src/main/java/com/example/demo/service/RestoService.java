@@ -10,4 +10,5 @@ public interface RestoService {
 	RestoDto Update(String id,RestoDto dto);
 	void Delete(String id);
 	List<RestoDto> GetAllResto();
+	RestoDto GetById(String id);
 }

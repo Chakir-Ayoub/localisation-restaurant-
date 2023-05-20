@@ -10,5 +10,6 @@ public interface SerieService {
 	SerieDto Update(String id,SerieDto dto);
 	void Delete(String id);
 	List<SerieDto> GetAllSerie();
+	SerieDto GetById(String id);
 	
 }

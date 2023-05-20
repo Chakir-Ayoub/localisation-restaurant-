@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entity.Specialite;
 import com.example.demo.reponse.SpecialiteResponse;
 import com.example.demo.request.SpecialiteRequest;
 import com.example.demo.service.SpecialiteService;
@@ -23,6 +25,7 @@ import com.example.demo.shared.dto.SpecialiteDto;
 
 @RestController
 @RequestMapping("/specialite")
+@CrossOrigin("http://localhost:3000/")
 public class SpecialiteController {
 	@Autowired
 	SpecialiteService service;
@@ -69,8 +72,28 @@ public class SpecialiteController {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
+	@GetMapping
 	public ResponseEntity<List<SpecialiteResponse>> getAll(){
-		return null;
+		List<SpecialiteResponse> specialiteResponses=new ArrayList<>();
+		List<SpecialiteDto> dtos=service.GetallSpecialite();
 		
+		for(SpecialiteDto specialiteDto :  dtos) {
+			SpecialiteResponse response=new SpecialiteResponse();
+			BeanUtils.copyProperties(specialiteDto, response);
+			
+			specialiteResponses.add(response);
+		}
+		return new ResponseEntity<>(specialiteResponses,HttpStatus.OK);
+		
+	}
+	
+	@GetMapping(path = "/Byid/{id}")
+	public SpecialiteResponse GetById(@PathVariable String id){
+		SpecialiteResponse response=new SpecialiteResponse();
+		
+		SpecialiteDto dto=service.GetBiId(id);
+		BeanUtils.copyProperties(dto, response);
+		
+		return response;
 	}
 }

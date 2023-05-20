@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.example.demo.shared.dto.SerieDto;
 
 @RestController
 @RequestMapping("/serie")
+@CrossOrigin("http://localhost:3000/")
 public class SerieController {
 	@Autowired
 	SerieService service;
@@ -75,5 +77,17 @@ public class SerieController {
 	@DeleteMapping(path = "/{id}")
 	public void Delete(@PathVariable String id) {
 		service.Delete(id);
+	}
+	
+	@GetMapping(path = "/Byid/{id}")
+	public SerieResponse GetById(@PathVariable String id) {
+		SerieDto dto=service.GetById(id);
+		
+		SerieResponse response=new SerieResponse();
+		
+		BeanUtils.copyProperties(dto, response);
+		
+		
+		return response;
 	}
 }

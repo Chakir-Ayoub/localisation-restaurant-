@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 
@@ -17,6 +19,7 @@ public class Serie  {
 	@Column(nullable = false,length = 50)
 	private String nom;
 	
+	@JsonIgnore
 	 @OneToMany(mappedBy = "id")
 	 private java.util.List<Resto> resto;
 
@@ -53,6 +56,8 @@ public class Serie  {
 	public void setResto(java.util.List<Resto> resto) {
 		this.resto = resto;
 	}
+
+
 	
 
 }

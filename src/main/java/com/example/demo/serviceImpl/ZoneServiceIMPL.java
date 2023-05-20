@@ -1,6 +1,7 @@
 package com.example.demo.serviceImpl;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -68,10 +69,21 @@ public class ZoneServiceIMPL implements ZoneService {
 	}
 
 	@Override
-	public List<VilleDto> GetAllVille(int page, int limit) {
+	public List<ZoneDto> GetAllZone() {
 		// TODO Auto-generated method stub
-		return null;
+		List<ZoneDto> zoneDtos=new ArrayList<>();
+		List<Zone> zones=zoneRepositoy.findAll();
+		
+		for (Zone zone : zones) {
+			ZoneDto dto=new ZoneDto();
+			BeanUtils.copyProperties(zone, dto);
+			
+			zoneDtos.add(dto);
+		}
+		return zoneDtos;
 	}
+
+	
 
 
 }

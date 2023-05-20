@@ -10,5 +10,5 @@ public interface ZoneService {
 	 ZoneDto GetBynom(String id);
 	 ZoneDto Update(String id,ZoneDto dto);
 	 void Delete(String id);
-	 List<VilleDto> GetAllVille(int page,int limit);
+	 List<ZoneDto> GetAllZone();
 }
