@@ -80,5 +80,11 @@ public class PhotoServiceImpl implements PhotoService {
 		}
 		return dtos;
 	}
+
+	@Override
+	public PhotoDto GetAllbyid(String url) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

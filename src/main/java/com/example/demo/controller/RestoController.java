@@ -25,7 +25,7 @@ import com.example.demo.shared.dto.RestoDto;
 
 @RestController
 @RequestMapping("/resto")
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin("*")
 public class RestoController {
 	
 	@Autowired 

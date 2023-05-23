@@ -15,8 +15,8 @@ public class RestoRequest {
 	private String restoid;
 	private Integer rank;
 	private String adresse;
-	private Integer latitude;
-	private Integer longitude;
+	private float latitude;
+	private float longitude;
 	@Temporal(TemporalType.TIME)
 	private Date heure_open;
 	@Temporal(TemporalType.TIME)
@@ -49,16 +49,17 @@ public class RestoRequest {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public Integer getLatitude() {
+	
+	public float getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(Integer latitude) {
+	public void setLatitude(float latitude) {
 		this.latitude = latitude;
 	}
-	public Integer getLongitude() {
+	public float getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(Integer longitude) {
+	public void setLongitude(float longitude) {
 		this.longitude = longitude;
 	}
 	public Date getHeure_open() {

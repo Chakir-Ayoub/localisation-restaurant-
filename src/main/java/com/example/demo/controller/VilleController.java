@@ -27,7 +27,7 @@ import com.example.demo.shared.dto.VilleDto;
 
 @RestController
 @RequestMapping("/ville")
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin("*")
 public class VilleController  {
 		
 		@Autowired

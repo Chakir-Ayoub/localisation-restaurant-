@@ -7,16 +7,21 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.demo.entity.Photo;
 import com.example.demo.reponse.PhotoResponse;
+import com.example.demo.repository.PhotoRepository;
 import com.example.demo.request.PhotoRequest;
 import com.example.demo.service.PhotoService;
 import com.example.demo.shared.dto.PhotoDto;
 
 @RestController
 @RequestMapping("/photo")
+@CrossOrigin("*")
 public class PhotoController {
 	@Autowired
 	PhotoService photoService;
+	@Autowired
+	PhotoRepository photoRepository;
 	
 	@PostMapping
 	public PhotoResponse CreatePhoto(@RequestBody PhotoRequest photoRequest) {
@@ -66,5 +71,13 @@ public class PhotoController {
 	@DeleteMapping(path = "/{id}") 
 	public void Delete(@PathVariable String id) {
 		photoService.Delete(id);
+	}
+	
+	@GetMapping("Byid/{id}")
+	public PhotoResponse GetById(@PathVariable String id){
+		Photo photo=photoRepository.findByphotoid(id);
+		PhotoResponse photoResponse=new PhotoResponse();
+		BeanUtils.copyProperties(photo, photoResponse);
+		return photoResponse;
 	}
 }

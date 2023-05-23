@@ -18,7 +18,7 @@ public class Photo  {
 	@Column(nullable = false,length = 90)
 	private String url;
 	
-	@JoinColumn(name = "id_resto",nullable = false)
+	@JoinColumn(name = "resto",nullable = false)
 	@ManyToOne
 	private Resto resto;
 

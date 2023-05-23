@@ -23,7 +23,7 @@ import com.example.demo.shared.dto.SerieDto;
 
 @RestController
 @RequestMapping("/serie")
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin("*")
 public class SerieController {
 	@Autowired
 	SerieService service;

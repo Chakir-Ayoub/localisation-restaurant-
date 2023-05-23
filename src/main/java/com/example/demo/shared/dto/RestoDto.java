@@ -18,12 +18,13 @@ public class RestoDto implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 7288453715699781894L;
+	private Integer id;
 	private String nom;
 	private String restoid;
 	private Integer rank;
 	private String adresse;
-	private Integer latitude;
-	private Integer longitude;
+	private float latitude;
+	private float longitude;
 	private Date heure_open;
 	private Date heure_close;
 	private String week;
@@ -54,16 +55,17 @@ public class RestoDto implements Serializable {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public Integer getLatitude() {
+
+	public float getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(Integer latitude) {
+	public void setLatitude(float latitude) {
 		this.latitude = latitude;
 	}
-	public Integer getLongitude() {
+	public float getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(Integer longitude) {
+	public void setLongitude(float longitude) {
 		this.longitude = longitude;
 	}
 	public Date getHeure_open() {
@@ -80,6 +82,12 @@ public class RestoDto implements Serializable {
 	}
 	public String getWeek() {
 		return week;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public void setWeek(String week) {
 		this.week = week;

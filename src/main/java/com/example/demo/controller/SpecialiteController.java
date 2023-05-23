@@ -25,7 +25,7 @@ import com.example.demo.shared.dto.SpecialiteDto;
 
 @RestController
 @RequestMapping("/specialite")
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin("*")
 public class SpecialiteController {
 	@Autowired
 	SpecialiteService service;

@@ -9,12 +9,13 @@ import com.example.demo.entity.Zone;
 
 
 public class RestoResponse {
+	private Integer id;
 	private String nom;
 	private String restoid;
 	private Integer rank;
 	private String adresse;
-	private Integer latitude;
-	private Integer longitude;
+	private float latitude;
+	private float longitude;
 	private Date heure_open;
 	private Date heure_close;
 	private String week;
@@ -44,16 +45,16 @@ public class RestoResponse {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public Integer getLatitude() {
+	public float getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(Integer latitude) {
+	public void setLatitude(float latitude) {
 		this.latitude = latitude;
 	}
-	public Integer getLongitude() {
+	public float getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(Integer longitude) {
+	public void setLongitude(float longitude) {
 		this.longitude = longitude;
 	}
 	public Date getHeure_open() {
@@ -85,6 +86,12 @@ public class RestoResponse {
 	}
 	public void setSerie(Serie serie) {
 		this.serie = serie;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	

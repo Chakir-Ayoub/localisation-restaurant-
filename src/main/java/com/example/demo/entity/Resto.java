@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
@@ -25,11 +26,13 @@ public class Resto  {
 	@Column(nullable = false,length = 80)
 	private String adresse;
 	@Column(nullable = false)
-	private Integer latitude;
+	private float latitude;
 	@Column(nullable = false)
-	private Integer longitude;
+	private float longitude;
+	@JsonFormat(pattern = "HH:mm:ss")
 	@Temporal(TemporalType.TIME)
 	private Date heure_open;
+	@JsonFormat(pattern = "HH:mm:ss")
 	@Temporal(TemporalType.TIME)
 	private Date heure_close;
 	@Column(nullable = false,length = 80)
@@ -116,21 +119,6 @@ public class Resto  {
 		this.adresse = adresse;
 	}
 
-	public Integer getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(Integer latitude) {
-		this.latitude = latitude;
-	}
-
-	public Integer getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(Integer longitude) {
-		this.longitude = longitude;
-	}
 
 	public Date getHeure_open() {
 		return heure_open;
@@ -186,6 +174,22 @@ public class Resto  {
 
 	public void setSpecialite(Set<Specialite> specialite) {
 		this.specialite = specialite;
+	}
+
+	public float getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(float latitude) {
+		this.latitude = latitude;
+	}
+
+	public float getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(float longitude) {
+		this.longitude = longitude;
 	}
 
 	

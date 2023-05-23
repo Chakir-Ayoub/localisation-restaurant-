@@ -10,4 +10,5 @@ public interface PhotoService {
 		PhotoDto Update(String id,PhotoDto dto);
 		void Delete(String id);
 		List<PhotoDto> GetAllPhoto();
+		PhotoDto GetAllbyid(String url);
 }

@@ -30,7 +30,7 @@ import com.example.demo.shared.dto.ZoneDto;
 
 @RestController
 @RequestMapping("/zone")
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin("*")
 public class ZoneController {
 	
 	@Autowired
